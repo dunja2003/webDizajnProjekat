@@ -60,17 +60,17 @@
 /*table styles start*/
 
 .price-low {
-    background-color: #81ccca; /* Light green */
+    background-color: #9dd9d7; 
     color: #00614a;
   }
 
 .price-high {
-    background-color: #f69d1c; /* Light red */
+    background-color: #f7ad3d; 
     color: #721c24;
   }
 
 .price-medium {
-    background-color: #f0ce1a; /* Light yellow */
+    background-color: #f4d941; 
     color: #856404;
   }
 
@@ -91,10 +91,144 @@
   }
 /*table styles end*/
 
+/*legend boxes start*/
+
 .legend-box {
   width: 1.25rem;   /* ≈ 20px */
   height: 1.25rem;
   min-width: 1.25rem;
   flex-shrink: 0;   /* Prevents box from shrinking on wrap */
   border-radius: 3px;
+}
+
+.legend-square {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    margin-right: 8px; /* zamena za mr-2 */
+    flex-shrink: 0; /* da se ne sabija */
+}
+
+/* boje stanja */
+.legend-square.available { background-color: #9dd9d7; }
+.legend-square.limited   { background-color: #f7ad3d; }
+.legend-square.full      { background-color: #f4d941; }
+
+/*legend boxes end*/
+
+/*Slideshow*/
+.slika {
+  width: 100vw;        /* zauzima celu širinu ekrana */
+  height: 520px;       /* ili koliko želiš */
+  object-fit: cover;    /* lepo popuni prostor i reže višak */
+  object-position: top; 
+  border-radius: 0;     /* ako želiš da ide skroz do ivice */
+}
+
+/* Dugmići preko Slideshow-a */
+.btn-slide {
+  position: absolute;       /* da bude preko slike */
+  top: 32%;                 /* vertikalno centrirani */
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.3); /* skoro transparentna crna */
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;       /* kružić */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;              /* da bude iznad slike */
+  transition: background-color 0.3s;
+}
+
+.btn-slide:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* malo tamniji na hover */
+}
+
+/* Pozicije */
+.btn-slide.left {
+  left: 10px;    /* udaljenost od leve ivice slike */
+}
+
+.btn-slide.right {
+  right: 10px;   /* udaljenost od desne ivice slike */
+}
+
+/* Kartice pocetna hoteli */
+.card-link {
+  text-decoration: none; /* uklanja underline */
+  color: inherit;        /* zadrži boju teksta */
+}
+
+.card-link .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* Kartice gradova Evrope */
+
+.city-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.city-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Slika unutar kartice */
+.city-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.city-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Tekst koji se pojavljuje preko slike */
+.city-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(12, 52, 86, 0.8); /* tamno plava transparentna */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  padding: 10px;
+}
+
+.city-card:hover .overlay {
+  opacity: 1;
+}
+
+
+.contact-btn {
+    background-color: rgb(12, 52, 86); /* teget plava */
+    color: white;                      /* tekst beo stalno */
+    padding: 10px 20px;
+    border: none;                      /* uklanja beli okvir */
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-btn:hover {
+    transform: scale(1.05);            /* malo veće */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* senka */
+    color: white;                      /* tekst i dalje beo */
 }
